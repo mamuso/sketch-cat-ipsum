@@ -87,10 +87,10 @@ for (var i=0; i<selection.count(); i++) {
   }
 
   var rg = /(^\s*\w{1}|\.\s*\w{1})/gi; 
-  var catJiberish = (catArray.join(' ') + '.').replace('\ .', '.').replace('\ ,', ',');
+  var catJiberish = catArray.join(' ');
   catJiberish = catJiberish.replace(rg, function(rp) {
     return rp.toUpperCase();
-  });
+  }).replace(/(\s\,)/g, ',').replace(/(\s\.)/g, '.');
   
   [layer setName:@"PURRRRRRRRR"];
   [layer setStringValue:catJiberish];
