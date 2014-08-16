@@ -1,0 +1,98 @@
+// shortcut for text (shift option cmd k)
+
+for (var i=0; i<selection.count(); i++) {
+  var layer = selection[i];
+  var sentences = NSArray.arrayWithObjects(
+    'leave hair everywhere',
+    'destroy couch',
+    'sleep nap',
+    'leave dead animals as gifts',
+    'purr for no reason',
+    'hide when guests come over',
+    'intently stare at the same spot',
+    'run in circles',
+    'have secret plans',
+    'favor packaging over toy',
+    'eat grass, throw it back up',
+    'chase dog then run away',
+    'bathe private parts with tongue then lick owner\'s face',
+    'flop over',
+    'missing until dinner time',
+    'chase mice',
+    'sleep in the bathroom sink',
+    'jump off balcony onto stranger\'s head',
+    'present belly, scratch hand when stroked',
+    'hunt by meowing loudly at 5am next to human slave food dispenser',
+    'always hungry',
+    'stand in front of the computer screen',
+    'chew iPad power cord',
+    'lick butt',
+    'stare at ceiling',
+    'use lap as chair',
+    'nap all day',
+    'inspect anything brought into the house',
+    'stick butt in face',
+    'leave fur on owners clothes',
+    'chew foot',
+    'climb leg',
+    'chase imaginary bugs',
+    'hack up furballs',
+    'mark territory',
+    'shake treat bag',
+    'all of a sudden cat goes crazy',
+    'burrow under covers',
+    'hunt anything that moves',
+    'I like big cats and I can not lie',
+    'claw drapes',
+    'intently sniff hand',
+    'throwup on your pillow',
+    'attack feet',
+    'why must they do that',
+    'hack up furballs',
+    'need to chase tail',
+    'intrigued by the shower',
+    'hate dog',
+    'find something else more interesting',
+    'sweet beast',
+    'play time',
+    'give attitude',
+    'hopped up on catnip',
+    'who\'s the baby',
+    'scamper',
+    'under the bed',
+    'rub face on everything',
+    'swat at dog',
+    'behind the couch',
+    'make muffins',
+    'cat snacks',
+    'sleep on keyboard',
+    'sun bathe',
+    'loves cheeseburgers',
+    'find empty spot in cupboard and sleep all day',
+    'stretch',
+    'lick arm hair',
+    'kick up litter'
+  );
+  var joiners = NSArray.arrayWithObjects(",", ".", "but", "and", "or", "yet", "so", "for");
+  var kittenThings = sentences.count()-1;
+  var textLength = Math.round(Math.random()*15) + 15;
+
+  var catArray = [];
+  for (var j=0; j<textLength; j++) {
+    if(j%2 == 0 && j > 0) {
+      var joiner = joiners[Math.round(Math.random()*(joiners.count()-1))];
+      catArray.push(joiner);
+    }
+    catArray.push(sentences[Math.round(Math.random()*kittenThings)]); 
+  }
+
+  var rg = /(^\s*\w{1}|\.\s*\w{1})/gi; 
+  var catJiberish = (catArray.join(' ') + '.').replace('\ .', '.').replace('\ ,', ',');
+  catJiberish = catJiberish.replace(rg, function(rp) {
+    return rp.toUpperCase();
+  });
+  
+  [layer setName:@"PURRRRRRRRR"];
+  [layer setStringValue:catJiberish];
+}
+
